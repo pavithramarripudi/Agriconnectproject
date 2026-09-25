@@ -1,0 +1,388 @@
+export const translations = {
+  English: {
+    // General
+    brandName: "AgriConnect",
+    tagline: "Better Markets • Fair Prices • Stronger Farmers",
+    slogan: "Better Markets. Better Prices. Better Farming.",
+    chooseLanguage: "Choose Your Language",
+    continue: "Continue →",
+    whoAreYou: "Who are you?",
+    chooseRole: "Choose your role to continue",
+    back: "Back",
+    logout: "Logout",
+    welcome: "Welcome",
+    loading: "Loading...",
+    noData: "No data available.",
+    filter: "Filter",
+    allCrops: "All Crops",
+    allLocations: "All Locations",
+    sampleDataNote: "Sample market data for prototype demonstration",
+    refresh: "Refresh",
+    submit: "Submit",
+    cancel: "Cancel",
+
+    // Roles
+    farmer: "Farmer",
+    farmerText: "Sell crops and find better prices",
+    buyer: "Buyer",
+    buyerText: "Find and buy farm produce directly",
+    delivery: "Delivery Partner",
+    deliveryText: "Transport farm produce safely",
+    admin: "Admin",
+    adminText: "Manage AgriConnect platform",
+
+    // Auth
+    login: "Login",
+    register: "Register",
+    createAccount: "Create Account",
+    alreadyHaveAccount: "Already have an account? Login",
+    fullName: "Full Name",
+    phoneNumber: "Phone Number",
+    password: "Password",
+    location: "Location / Village / District",
+    selectRole: "Selected Role",
+    enterPhone: "Enter 10-digit phone number",
+    enterPassword: "Enter your password",
+    enterName: "Enter your full name",
+    enterLocation: "e.g. Vijayawada, AP",
+
+    // Farmer Dashboard Navigation & Headers
+    farmerDashboard: "Farmer Dashboard",
+    todaysBestPrice: "Today's Best Price",
+    sellCrop: "Sell Crop",
+    marketPrices: "Market Prices",
+    findBuyers: "Find Buyers",
+    myOffers: "My Offers",
+    myOrders: "My Orders",
+
+    // Sell Crop Form
+    listCropTitle: "List Your Crop for Sale",
+    cropName: "Crop Name",
+    quantity: "Quantity",
+    unit: "Unit",
+    expectedPrice: "Expected Price (₹)",
+    listCropBtn: "List Crop",
+    cropListedSuccess: "Crop listed successfully.",
+    activeListings: "My Active Crop Listings",
+    listingStatus: "Status",
+    pricePerUnit: "Price / Unit",
+
+    // Market Prices & Discovery
+    priceDiscoveryTitle: "Mandi Market Price Discovery",
+    priceComparisonTitle: "Price Comparison Across Markets",
+    minPrice: "Min Price",
+    maxPrice: "Max Price",
+    modalPrice: "Modal Price",
+    bestAvailablePrice: "Best Available Price",
+    recommendationReason: "Why Recommended",
+    marketMandi: "Market / Mandi",
+    priceDate: "Date",
+
+    // Find Buyers & Farmer Offers
+    buyerOffersTitle: "Direct Buyer Offers for Your Crops",
+    offeredPrice: "Offered Price",
+    acceptOffer: "Accept Offer",
+    rejectOffer: "Reject Offer",
+    offerAcceptedMsg: "Offer accepted successfully! Order has been generated.",
+    offerRejectedMsg: "Offer rejected.",
+
+    // Orders
+    ordersTitle: "My Orders & Delivery Tracking",
+    orderId: "Order ID",
+    buyerName: "Buyer Name",
+    farmerName: "Farmer Name",
+    finalPrice: "Final Price",
+    orderStatus: "Order Status",
+
+    // Order Status Badges
+    confirmed: "Confirmed",
+    ready: "Ready for Pickup",
+    inTransit: "In Transit",
+    delivered: "Delivered",
+
+    // Buyer Dashboard
+    buyerDashboard: "Buyer Dashboard",
+    browseCrops: "Browse Crops & Listings",
+    makeOffer: "Make Offer",
+    availableListings: "Available Farmer Listings",
+    expectedPriceLabel: "Farmer's Expected Price",
+    enterOfferPrice: "Enter Your Offer Price (₹)",
+    submitOfferBtn: "Submit Offer",
+    offerSubmittedSuccess: "Offer submitted successfully to the farmer!",
+    buyerMyOffers: "Offers Sent by Me",
+
+    // Delivery Partner
+    deliveryDashboard: "Delivery Partner Dashboard",
+    availableDeliveries: "Available Deliveries",
+    assignedDeliveries: "Assigned Deliveries",
+    updateDeliveryStatus: "Update Delivery Status",
+    acceptDelivery: "Accept / Transport Order",
+
+    // Admin Dashboard
+    adminDashboard: "Admin Platform Dashboard",
+    totalFarmers: "Total Farmers",
+    totalBuyers: "Total Buyers",
+    totalListings: "Total Crop Listings",
+    totalOffers: "Total Offers",
+    totalOrders: "Total Orders",
+    userManagement: "Registered Users",
+  },
+
+  Telugu: {
+    // General
+    brandName: "AgriConnect",
+    tagline: "మంచి మార్కెట్లు • సరైన ధరలు • బలమైన రైతులు",
+    slogan: "మెరుగైన మార్కెట్లు. మంచి ధరలు. మెరుగైన వ్యవసాయం.",
+    chooseLanguage: "మీ భాషను ఎంచుకోండి",
+    continue: "కొనసాగించండి →",
+    whoAreYou: "మీరు ఎవరు?",
+    chooseRole: "కొనసాగించడానికి మీ పాత్రను ఎంచుకోండి",
+    back: "వెనుకకు",
+    logout: "లాగ్ అవుట్",
+    welcome: "స్వాగతం",
+    loading: "లోడ్ అవుతోంది...",
+    noData: "సమాచారం అందుబాటులో లేదు.",
+    filter: "ఫిల్టర్ చేయండి",
+    allCrops: "అన్ని పంటలు",
+    allLocations: "అన్ని ప్రాంతాలు",
+    sampleDataNote: "ప్రోటోటైప్ ప్రదర్శన కోసం నమూనా మార్కెట్ డేటా",
+    refresh: "రిఫ్రెష్",
+    submit: "సమర్పించండి",
+    cancel: "రద్దు చేయి",
+
+    // Roles
+    farmer: "రైతు",
+    farmerText: "పంటను అమ్మి మంచి ధర పొందండి",
+    buyer: "కొనుగోలుదారు",
+    buyerText: "వ్యవసాయ ఉత్పత్తులను నేరుగా కొనండి",
+    delivery: "రవాణా భాగస్వామి",
+    deliveryText: "వ్యవసాయ ఉత్పత్తులను రవాణా చేయండి",
+    admin: "అడ్మిన్",
+    adminText: "AgriConnect ను నిర్వహించండి",
+
+    // Auth
+    login: "లాగిన్",
+    register: "రిజిస్టర్",
+    createAccount: "ఖాతాను సృష్టించండి",
+    alreadyHaveAccount: "ఇప్పటికే ఖాతా ఉందా? లాగిన్ చేయండి",
+    fullName: "పూర్తి పేరు",
+    phoneNumber: "ఫోన్ నంబర్",
+    password: "పాస్‌వర్డ్",
+    location: "ప్రాంతం / గ్రామం / జిల్లా",
+    selectRole: "ఎంచుకున్న పాత్ర",
+    enterPhone: "10 అంకెల ఫోన్ నంబర్ ఎంటర్ చేయండి",
+    enterPassword: "పాస్‌వర్డ్ ఎంటర్ చేయండి",
+    enterName: "మీ పూర్తి పేరు నమోదు చేయండి",
+    enterLocation: "ఉదా: విజయవాడ, ఆంధ్రప్రదేశ్",
+
+    // Farmer Dashboard Navigation & Headers
+    farmerDashboard: "రైతు డాష్‌బోర్డ్",
+    todaysBestPrice: "ఈనాటి ఉత్తమ ధర",
+    sellCrop: "పంట అమ్మకం",
+    marketPrices: "మార్కెట్ ధరలు",
+    findBuyers: "కొనుగోలుదారులను వెతకండి",
+    myOffers: "నా ఆఫర్లు",
+    myOrders: "నా ఆర్డర్లు",
+
+    // Sell Crop Form
+    listCropTitle: "అమ్మకానికి మీ పంటను నమోదు చేయండి",
+    cropName: "పంట పేరు",
+    quantity: "పరిమాణం",
+    unit: "యూనిట్",
+    expectedPrice: "ఆశిస్తున్న ధర (₹)",
+    listCropBtn: "పంటను జాబితా చేయండి",
+    cropListedSuccess: "పంట విజయవంతంగా జాబితా చేయబడింది.",
+    activeListings: "నా యాక్టివ్ పంట జాబితాలు",
+    listingStatus: "స్థితి",
+    pricePerUnit: "ధర / యూనిట్",
+
+    // Market Prices & Discovery
+    priceDiscoveryTitle: "మండి మార్కెట్ ధరలు",
+    priceComparisonTitle: "వివిధ మార్కెట్లలో ధరల పోలిక",
+    minPrice: "కనీస ధర",
+    maxPrice: "గరిష్ట ధర",
+    modalPrice: "సగటు ధర",
+    bestAvailablePrice: "అత్యుత్తమ మార్కెట్ ధర",
+    recommendationReason: "సిఫార్సు చేసిన కారణం",
+    marketMandi: "మార్కెట్ / మండి",
+    priceDate: "తేదీ",
+
+    // Find Buyers & Farmer Offers
+    buyerOffersTitle: "మీ పంటలకు కొనుగోలుదారుల ఆఫర్లు",
+    offeredPrice: "ఆఫర్ చేసిన ధర",
+    acceptOffer: "ఆఫర్ అంగీకరించు",
+    rejectOffer: "ఆఫర్ తిరస్కరించు",
+    offerAcceptedMsg: "ఆఫర్ విజయవంతంగా అంగీకరించబడింది! ఆర్డర్ రూపొందించబడింది.",
+    offerRejectedMsg: "ఆఫర్ తిరస్కరించబడింది.",
+
+    // Orders
+    ordersTitle: "నా ఆర్డర్లు & డెలివరీ స్థితి",
+    orderId: "ఆర్డర్ ID",
+    buyerName: "కొనుగోలుదారు పేరు",
+    farmerName: "రైతు పేరు",
+    finalPrice: "తుది ధర",
+    orderStatus: "ఆర్డర్ స్థితి",
+
+    // Order Status Badges
+    confirmed: "ఖరారైంది",
+    ready: "రవాణాకు సిద్ధం",
+    inTransit: "రవాణాలో ఉంది",
+    delivered: "డెలివరీ పూర్తయింది",
+
+    // Buyer Dashboard
+    buyerDashboard: "కొనుగోలుదారు డాష్‌బోర్డ్",
+    browseCrops: "రైతుల పంటలను వెతకండి",
+    makeOffer: "ఆఫర్ చేయండి",
+    availableListings: "లభ్యమయ్యే రైతు పంటలు",
+    expectedPriceLabel: "రైతు ఆశిస్తున్న ధర",
+    enterOfferPrice: "మీ ఆఫర్ ధర నమోదు చేయండి (₹)",
+    submitOfferBtn: "ఆఫర్ సమర్పించండి",
+    offerSubmittedSuccess: "ఆఫర్ రైతుకు విజయవంతంగా పంపబడింది!",
+    buyerMyOffers: "నేను పంపిన ఆఫర్లు",
+
+    // Delivery Partner
+    deliveryDashboard: "రవాణా భాగస్వామి డాష్‌బోర్డ్",
+    availableDeliveries: "లభ్యమయ్యే డెలివరీలు",
+    assignedDeliveries: "కేటాయించిన డెలివరీలు",
+    updateDeliveryStatus: "స్థితిని నవీకరించండి",
+    acceptDelivery: "డెలివరీని ప్రారంభించండి",
+
+    // Admin Dashboard
+    adminDashboard: "అడ్మిన్ డాష్‌బోర్డ్",
+    totalFarmers: "మొత్తం రైతులు",
+    totalBuyers: "మొత్తం కొనుగోలుదారులు",
+    totalListings: "మొత్తం పంట జాబితాలు",
+    totalOffers: "మొత్తం ఆఫర్లు",
+    totalOrders: "మొత్తం ఆర్డర్లు",
+    userManagement: "నమోదిత వినియోగదారులు",
+  },
+
+  Hindi: {
+    // General
+    brandName: "AgriConnect",
+    tagline: "बेहतर बाजार • सही दाम • सशक्त किसान",
+    slogan: "बेहतर बाजार। बेहतर भाव। बेहतर खेती।",
+    chooseLanguage: "अपनी भाषा चुनें",
+    continue: "आगे बढ़ें →",
+    whoAreYou: "आप कौन हैं?",
+    chooseRole: "आगे बढ़ने के लिए अपनी भूमिका चुनें",
+    back: "पीछे जाएं",
+    logout: "लॉग आउट",
+    welcome: "स्वागत है",
+    loading: "लोड हो रहा है...",
+    noData: "कोई जानकारी उपलब्ध नहीं है।",
+    filter: "फ़िल्टर",
+    allCrops: "सभी फसलें",
+    allLocations: "सभी स्थान",
+    sampleDataNote: "प्रारूप प्रदर्शन के लिए नमूना मंडी डेटा",
+    refresh: "रिफ्रेश",
+    submit: "सबमिट करें",
+    cancel: "रद्द करें",
+
+    // Roles
+    farmer: "किसान",
+    farmerText: "फसल बेचें और बेहतर भाव पाएं",
+    buyer: "खरीदार",
+    buyerText: "कृषि उत्पाद सीधे खरीदें",
+    delivery: "डिलीवरी पार्टनर",
+    deliveryText: "कृषि उत्पाद सुरक्षित पहुंचाएं",
+    admin: "एडमिन",
+    adminText: "AgriConnect प्रबंधित करें",
+
+    // Auth
+    login: "लॉग इन",
+    register: "रजिस्टर करें",
+    createAccount: "खाता बनाएं",
+    alreadyHaveAccount: "पहले से खाता है? लॉग इन करें",
+    fullName: "पूरा नाम",
+    phoneNumber: "फोन नंबर",
+    password: "पासवर्ड",
+    location: "स्थान / गांव / जिला",
+    selectRole: "चुनी गई भूमिका",
+    enterPhone: "10 अंकों का फोन नंबर दर्ज करें",
+    enterPassword: "पासवर्ड दर्ज करें",
+    enterName: "अपना पूरा नाम दर्ज करें",
+    enterLocation: "जैसे: विजयवाड़ा, आंध्र प्रदेश",
+
+    // Farmer Dashboard Navigation & Headers
+    farmerDashboard: "किसान डैशबोर्ड",
+    todaysBestPrice: "आज का सबसे अच्छा भाव",
+    sellCrop: "फसल बेचें",
+    marketPrices: "मंडी भाव",
+    findBuyers: "खरीदार खोजें",
+    myOffers: "मेरे ऑफर",
+    myOrders: "मेरे ऑर्डर",
+
+    // Sell Crop Form
+    listCropTitle: "बिक्री के लिए अपनी फसल सूचीबद्ध करें",
+    cropName: "फसल का नाम",
+    quantity: "मात्रा",
+    unit: "इकाई",
+    expectedPrice: "अपेक्षित मूल्य (₹)",
+    listCropBtn: "फसल जोड़ें",
+    cropListedSuccess: "फसल सफलतापूर्वक सूचीबद्ध हो गई।",
+    activeListings: "मेरी सक्रिय फसलें",
+    listingStatus: "स्थिति",
+    pricePerUnit: "मूल्य / इकाई",
+
+    // Market Prices & Discovery
+    priceDiscoveryTitle: "मंडी बाजार मूल्य खोज",
+    priceComparisonTitle: "विभिन्न मंडियों में भाव की तुलना",
+    minPrice: "न्यूनतम भाव",
+    maxPrice: "अधिकतम भाव",
+    modalPrice: "औसत भाव",
+    bestAvailablePrice: "सर्वोत्तम उपलब्ध भाव",
+    recommendationReason: "सिफारिश का कारण",
+    marketMandi: "मंडी / बाजार",
+    priceDate: "दिनांक",
+
+    // Find Buyers & Farmer Offers
+    buyerOffersTitle: "आपकी फसलों के लिए खरीदारों के ऑफर",
+    offeredPrice: "प्रस्तावित मूल्य",
+    acceptOffer: "ऑफर स्वीकार करें",
+    rejectOffer: "ऑफर अस्वीकार करें",
+    offerAcceptedMsg: "ऑफर सफलतापूर्वक स्वीकार किया गया! ऑर्डर बन गया है।",
+    offerRejectedMsg: "ऑफर अस्वीकृत कर दिया गया।",
+
+    // Orders
+    ordersTitle: "मेरे ऑर्डर और डिलीवरी स्थिति",
+    orderId: "ऑर्डर आईडी",
+    buyerName: "खरीदार का नाम",
+    farmerName: "किसान का नाम",
+    finalPrice: "अंतिम मूल्य",
+    orderStatus: "ऑर्डर की स्थिति",
+
+    // Order Status Badges
+    confirmed: "पुष्टि की गई",
+    ready: "पिकअप के लिए तैयार",
+    inTransit: "रास्ते में है",
+    delivered: "डिलीवर हो गया",
+
+    // Buyer Dashboard
+    buyerDashboard: "खरीदार डैशबोर्ड",
+    browseCrops: "फसलें खोजें",
+    makeOffer: "ऑफर दें",
+    availableListings: "उपलब्ध किसान फसलें",
+    expectedPriceLabel: "किसान का अपेक्षित भाव",
+    enterOfferPrice: "अपना ऑफर मूल्य दर्ज करें (₹)",
+    submitOfferBtn: "ऑफर भेजें",
+    offerSubmittedSuccess: "ऑफर किसान को सफलतापूर्वक भेज दिया गया है!",
+    buyerMyOffers: "मेरे द्वारा भेजे गए ऑफर",
+
+    // Delivery Partner
+    deliveryDashboard: "डिलीवरी पार्टनर डैशबोर्ड",
+    availableDeliveries: "उपलब्ध डिलीवरी",
+    assignedDeliveries: "सौंपी गई डिलीवरी",
+    updateDeliveryStatus: "स्थिति अपडेट करें",
+    acceptDelivery: "डिलीवरी स्वीकार करें",
+
+    // Admin Dashboard
+    adminDashboard: "एडमिन डैशबोर्ड",
+    totalFarmers: "कुल किसान",
+    totalBuyers: "कुल खरीदार",
+    totalListings: "कुल फसल सूची",
+    totalOffers: "कुल ऑफर",
+    totalOrders: "कुल ऑर्डर",
+    userManagement: "पंजीकृत उपयोगकर्ता",
+  },
+};
