@@ -11,6 +11,7 @@ import FarmerDashboard from "./components/FarmerDashboard";
 import BuyerDashboard from "./components/BuyerDashboard";
 import DeliveryDashboard from "./components/DeliveryDashboard";
 import AdminDashboard from "./components/AdminDashboard";
+import Footer from "./components/AgriFooter";
 
 function App() {
   const [screen, setScreen] = useState("splash"); // splash, language, role, auth, dashboard
@@ -103,13 +104,23 @@ function App() {
 
         {screen === "dashboard" && user && (
           <>
-            {user.role === "farmer" && <FarmerDashboard user={user} t={t} />}
+            {user.role === "farmer" && (
+              <FarmerDashboard
+                user={user}
+                t={t}
+                language={language}
+             />
+            )}
+            
             {user.role === "buyer" && <BuyerDashboard user={user} t={t} />}
             {user.role === "delivery" && <DeliveryDashboard user={user} t={t} />}
             {user.role === "admin" && <AdminDashboard user={user} t={t} />}
           </>
         )}
-      </main>
+            </main>
+
+      {screen !== "splash" && <Footer />}
+
     </div>
   );
 }

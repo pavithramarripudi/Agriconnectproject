@@ -70,7 +70,21 @@ export function BuyerDashboard({ user, t }) {
       setLoading(false);
     }
   };
+const handlePayment = async (orderId) => {
+  try {
+    setLoading(true);
 
+    await api.updatePayment(orderId, "ONLINE", "PAID");
+
+    alert("Demo Payment Successful!");
+
+    await fetchData();
+  } catch (err) {
+    alert(err.message || "Payment failed.");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="dashboard-container">
       {/* Welcome Banner */}
@@ -216,7 +230,18 @@ export function BuyerDashboard({ user, t }) {
                     <p>👨‍🌾 <strong>Farmer:</strong> {ord.farmer_name} ({ord.farmer_phone})</p>
                     <p>📦 <strong>Quantity:</strong> {ord.quantity} {ord.unit}</p>
                     <p>💰 <strong>Agreed Price:</strong> ₹{ord.final_price}/{ord.unit}</p>
+                    <p>💳 <strong>Payment Method:</strong> {ord.payment_method || "COD"}</p>
+                    <p>💰 <strong>Payment Status:</strong> {ord.payment_status || "PENDING"}</p>
                     <p>🚚 <strong>Carrier:</strong> {ord.delivery_partner_name || "Assigning carrier..."}</p>
+                    {(ord.payment_status || "PENDING").toUpperCase() !== "PAID" && (
+  <button
+    className="primary-btn"
+    onClick={() => handlePayment(ord.order_id)}
+    disabled={loading}
+  >
+    {loading ? "Processing..." : "Pay Now (Demo)"}
+  </button>
+)}
                   </div>
                 ))}
               </div>

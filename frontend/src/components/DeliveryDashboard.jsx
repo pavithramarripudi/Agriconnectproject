@@ -88,7 +88,9 @@ export function DeliveryDashboard({ user, t }) {
 
                   {ord.status === "Delivered" && (
                     <div className="alert-box success text-center font-bold">
-                      🎉 Delivery Completed Successfully!
+                      <p>🎉 Delivery Completed Successfully!</p>
+                      <p>💰 Delivery Earning: ₹100</p>
+                      <p>✅ Earning Status: EARNED</p>
                     </div>
                   )}
                 </div>

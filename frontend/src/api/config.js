@@ -111,7 +111,14 @@ export const api = {
       method: "PUT",
       body: JSON.stringify({ status, delivery_partner_id }),
     }),
-
+  updatePayment: (order_id, payment_method, payment_status) =>
+  request(`/api/orders/${order_id}/payment`, {
+    method: "PUT",
+    body: JSON.stringify({
+      payment_method,
+      payment_status,
+    }),
+  }),
   // Recommendation
   getRecommendations: (crop = "Tomato", location = "") => {
     const params = new URLSearchParams();

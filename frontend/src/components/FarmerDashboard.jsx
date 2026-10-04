@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import api from "../api/config";
 
-export function FarmerDashboard({ user, t }) {
+export function FarmerDashboard({ user, t, language }) {
   const [activeTab, setActiveTab] = useState("overview"); // overview, sell, market, buyers, offers, orders
   
   // Data states
@@ -54,7 +54,229 @@ export function FarmerDashboard({ user, t }) {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+// ================= MULTILINGUAL VOICE AGENT =================
 
+const voiceConfig = {
+  English: {
+    code: "en-IN",
+    listening: "I am listening",
+    market: "Opening market prices",
+    sell: "Opening sell crop",
+    offers: "Opening buyer offers",
+    orders: "Opening your orders",
+    dashboard: "Opening farmer dashboard",
+    unknown: "Sorry, I did not understand that command",
+  },
+
+  Telugu: {
+    code: "te-IN",
+    listening: "నేను వింటున్నాను",
+    market: "మార్కెట్ ధరలు తెరుస్తున్నాను",
+    sell: "పంట అమ్మే పేజీ తెరుస్తున్నాను",
+    offers: "కొనుగోలుదారుల ఆఫర్లు తెరుస్తున్నాను",
+    orders: "మీ ఆర్డర్లు తెరుస్తున్నాను",
+    dashboard: "రైతు డాష్‌బోర్డ్ తెరుస్తున్నాను",
+    unknown: "క్షమించండి, మీ మాట నాకు అర్థం కాలేదు",
+  },
+
+  Hindi: {
+    code: "hi-IN",
+    listening: "मैं सुन रही हूँ",
+    market: "बाजार भाव खोल रही हूँ",
+    sell: "फसल बेचने का पेज खोल रही हूँ",
+    offers: "खरीदारों के ऑफर खोल रही हूँ",
+    orders: "आपके ऑर्डर खोल रही हूँ",
+    dashboard: "किसान डैशबोर्ड खोल रही हूँ",
+    unknown: "माफ कीजिए, मैं आपकी बात समझ नहीं पाई",
+  },
+};
+
+const getVoiceConfig = () => {
+  return voiceConfig[language] || voiceConfig.English;
+};
+
+const speak = (message) => {
+  window.speechSynthesis.cancel();
+
+  const speech = new SpeechSynthesisUtterance(message);
+  speech.lang = getVoiceConfig().code;
+
+  window.speechSynthesis.speak(speech);
+};
+
+const startVoiceAssistant = () => {
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert(
+      "Voice recognition is not supported in this browser. Please use Google Chrome."
+    );
+    return;
+  }
+
+  const config = getVoiceConfig();
+
+  const recognition = new SpeechRecognition();
+
+  recognition.lang = config.code;
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = () => {
+    speak(config.listening);
+  };
+
+  recognition.onresult = (event) => {
+    const command = event.results[0][0].transcript.toLowerCase();
+
+    console.log("Voice language:", language);
+    console.log("Voice command:", command);
+
+    // ---------- ENGLISH ----------
+    if (language === "English") {
+      if (
+        command.includes("market") ||
+        command.includes("price")
+      ) {
+        setActiveTab("market");
+        speak(config.market);
+      }
+
+      else if (
+        command.includes("sell") ||
+        command.includes("crop")
+      ) {
+        setActiveTab("sell");
+        speak(config.sell);
+      }
+
+      else if (command.includes("offer")) {
+        setActiveTab("offers");
+        speak(config.offers);
+      }
+
+      else if (command.includes("order")) {
+        setActiveTab("orders");
+        speak(config.orders);
+      }
+
+      else if (
+        command.includes("home") ||
+        command.includes("dashboard")
+      ) {
+        setActiveTab("overview");
+        speak(config.dashboard);
+      }
+
+      else {
+        speak(config.unknown);
+      }
+    }
+
+    // ---------- TELUGU ----------
+    else if (language === "Telugu") {
+      if (
+        command.includes("మార్కెట్") ||
+        command.includes("ధర") ||
+        command.includes("ధరలు")
+      ) {
+        setActiveTab("market");
+        speak(config.market);
+      }
+
+      else if (
+        command.includes("అమ్మ") ||
+        command.includes("పంట అమ్మ")
+      ) {
+        setActiveTab("sell");
+        speak(config.sell);
+      }
+
+      else if (
+        command.includes("ఆఫర్") ||
+        command.includes("ఆఫర్లు")
+      ) {
+        setActiveTab("offers");
+        speak(config.offers);
+      }
+
+      else if (
+        command.includes("ఆర్డర్") ||
+        command.includes("ఆర్డర్లు")
+      ) {
+        setActiveTab("orders");
+        speak(config.orders);
+      }
+
+      else if (
+        command.includes("హోమ్") ||
+        command.includes("డాష్‌బోర్డ్")
+      ) {
+        setActiveTab("overview");
+        speak(config.dashboard);
+      }
+
+      else {
+        speak(config.unknown);
+      }
+    }
+
+    // ---------- HINDI ----------
+    else if (language === "Hindi") {
+      if (
+        command.includes("बाजार") ||
+        command.includes("भाव") ||
+        command.includes("कीमत")
+      ) {
+        setActiveTab("market");
+        speak(config.market);
+      }
+
+      else if (
+        command.includes("बेच") ||
+        command.includes("फसल")
+      ) {
+        setActiveTab("sell");
+        speak(config.sell);
+      }
+
+      else if (
+        command.includes("ऑफर") ||
+        command.includes("प्रस्ताव")
+      ) {
+        setActiveTab("offers");
+        speak(config.offers);
+      }
+
+      else if (
+        command.includes("ऑर्डर") ||
+        command.includes("आर्डर")
+      ) {
+        setActiveTab("orders");
+        speak(config.orders);
+      }
+
+      else if (
+        command.includes("होम") ||
+        command.includes("डैशबोर्ड")
+      ) {
+        setActiveTab("overview");
+        speak(config.dashboard);
+      }
+
+      else {
+        speak(config.unknown);
+      }
+    }
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Voice recognition error:", event.error);
+  };
+
+  recognition.start();
+};
   // Handle Sell Crop Submission
   const handleListCrop = async (e) => {
     e.preventDefault();
@@ -120,6 +342,13 @@ export function FarmerDashboard({ user, t }) {
         <button onClick={fetchData} className="refresh-btn">
           🔄 {t.refresh}
         </button>
+       <button
+  onClick={startVoiceAssistant}
+  className="voice-agent-btn"
+  title="AgriConnect Voice Agent"
+>
+  🎙️
+</button>
       </div>
 
       {/* Navigation Buttons Grid */}
@@ -448,6 +677,24 @@ export function FarmerDashboard({ user, t }) {
                     <p>👤 <strong>{t.buyerName}:</strong> {ord.buyer_name} ({ord.buyer_phone})</p>
                     <p>📦 <strong>Quantity:</strong> {ord.quantity} {ord.unit}</p>
                     <p>💰 <strong>Agreed Price:</strong> ₹{ord.final_price}/{ord.unit}</p>
+                    <p>
+  💵 <strong>Total Amount:</strong> ₹
+  {(Number(ord.quantity) * Number(ord.final_price)).toLocaleString("en-IN")}
+</p>
+
+<p>
+  💳 <strong>Payment Status:</strong>{" "}
+  {(ord.payment_status || "PENDING").toUpperCase()}
+</p>
+
+{(ord.payment_status || "PENDING").toUpperCase() === "PAID" ? (
+  <p>
+    ✅ <strong>Amount Received:</strong> ₹
+    {(Number(ord.quantity) * Number(ord.final_price)).toLocaleString("en-IN")}
+  </p>
+) : (
+  <p>⏳ <strong>Awaiting Buyer Payment</strong></p>
+)}
                     <p>🚚 <strong>Delivery Partner:</strong> {ord.delivery_partner_name || "Assigning carrier..."}</p>
                   </div>
                 ))}

@@ -371,7 +371,8 @@ def get_orders():
 
     query = """
         SELECT o.id as order_id, o.listing_id, o.farmer_id, o.buyer_id, o.quantity,
-               o.final_price, o.status, o.delivery_partner_id, o.created_at,
+       o.final_price, o.status, o.delivery_partner_id, o.created_at,
+       o.payment_method, o.payment_status,
                l.crop_name, l.unit, l.location as listing_location,
                u_farmer.name as farmer_name, u_farmer.phone as farmer_phone, u_farmer.location as farmer_location,
                u_buyer.name as buyer_name, u_buyer.phone as buyer_phone, u_buyer.location as buyer_location,
@@ -427,7 +428,50 @@ def update_order_status(order_id):
     conn.close()
 
     return jsonify({"message": f"Order #{order_id} status updated to {new_status}."}), 200
+@app.route("/api/orders/<int:order_id>/payment", methods=["PUT"])
+def update_payment(order_id):
+    data = request.get_json() or {}
 
+    payment_method = data.get("payment_method", "").strip().upper()
+    payment_status = data.get("payment_status", "").strip().upper()
+
+    allowed_methods = ["COD", "ONLINE"]
+    allowed_statuses = ["PENDING", "PAID"]
+
+    if payment_method not in allowed_methods:
+        return jsonify({"error": "Payment method must be COD or ONLINE."}), 400
+
+    if payment_status not in allowed_statuses:
+        return jsonify({"error": "Payment status must be PENDING or PAID."}), 400
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT id FROM orders WHERE id = ?", (order_id,))
+    order = cursor.fetchone()
+
+    if not order:
+        conn.close()
+        return jsonify({"error": "Order not found."}), 404
+
+    cursor.execute(
+        """
+        UPDATE orders
+        SET payment_method = ?, payment_status = ?
+        WHERE id = ?
+        """,
+        (payment_method, payment_status, order_id)
+    )
+
+    conn.commit()
+    conn.close()
+
+    return jsonify({
+        "message": "Demo payment updated successfully.",
+        "order_id": order_id,
+        "payment_method": payment_method,
+        "payment_status": payment_status
+    }), 200
 # ----------------- AI RECOMMENDATION -----------------
 
 @app.route("/api/recommendations", methods=["GET"])
