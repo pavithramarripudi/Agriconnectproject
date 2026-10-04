@@ -56,6 +56,8 @@ CREATE TABLE IF NOT EXISTS orders (
     final_price REAL NOT NULL,
     status TEXT DEFAULT 'confirmed',
     delivery_partner_id INTEGER,
+    payment_method TEXT DEFAULT 'COD',
+    payment_status TEXT DEFAULT 'PENDING',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (listing_id) REFERENCES crop_listings(id),
     FOREIGN KEY (farmer_id) REFERENCES users(id),
