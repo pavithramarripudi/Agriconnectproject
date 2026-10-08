@@ -847,3 +847,34 @@ body {
 .voice-agent-btn:active {
   transform: scale(0.95);
 }
+/* Fix invisible button text across browsers */
+
+.language-btn,
+.role-btn,
+.tab-btn {
+    color: #1f2937;
+}
+
+.language-btn:hover,
+.role-btn:hover,
+.tab-btn:hover {
+    color: #1f2937;
+}
+
+.tab-btn.active,
+.tab-btn.active:hover {
+    color: #ffffff;
+}
+
+/* Keep primary button text visible */
+.primary-btn,
+.primary-btn:hover {
+    color: #ffffff;
+}
+
+/* Keep action button text visible */
+.accept-btn,
+.reject-btn,
+.logout-btn {
+    color: #ffffff;
+}
